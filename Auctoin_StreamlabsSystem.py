@@ -13,10 +13,10 @@ import sqlite3
 
 #script meta info
 ScriptName = "Auction"
-Website = "localhost"
-Description = "Auction"
-Creator = "NoName"
-Version = "1.2.3"
+Website = "https://github.com/e-trp/Auction_Streamlabs"
+Description = "streamlabs chatbot auction"
+Creator = "Evgeniy etr-p"
+Version = "1.0.0"
 
 #global variables and settings
 configFile = "config.json"
@@ -24,11 +24,11 @@ settings = {}
 games=set()
 
 sql={ 
-	  "create"      : """create table if not exists auction(id integer primary key autoincrement, game text, cost integer)""",
-	  "insert"      : """insert into auction(game, cost) values (?, ?)""",
-	  "select_game" : """select game, cost from auction where game=?""",
-      "select_all"  : """select id, game, cost from auction order by cost desc""" ,
-	  "update"      : """update auction set cost=cost+? where game=? """
+	"create"      : """create table if not exists auction(id integer primary key autoincrement, game text, cost integer)""",
+	"insert"      : """insert into auction(game, cost) values (?, ?)""",
+	"select_game" : """select game, cost from auction where game=?""",
+	"select_all"  : """select id, game, cost from auction order by cost desc""" ,
+	"update"      : """update auction set cost=cost+? where game=? """
 	 }
 
 def MakeTable(game, cost):
