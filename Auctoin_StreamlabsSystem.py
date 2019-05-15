@@ -3,7 +3,7 @@ import sys
 import json
 import codecs
 import clr
-import time
+
 
 sys.path.append(os.path.join(os.path.dirname(__file__), "lib"))
 clr.AddReference("IronPython.SQLite.dll")
