@@ -1,0 +1,48 @@
+{
+    "output_file": "config.json",
+
+    "liveOnly": {
+        "type": "checkbox",
+        "value": false,
+        "label": "Live Only Mode",
+        "tooltip": "True if you want it to only run when you are live",
+        "group" : "General"
+    },
+	
+    "command": {
+        "type": "textbox",
+        "value": "!addgame",
+        "label": "Command",
+        "tooltip": "Name of the command",
+        "group": "General"
+    },
+	
+    "permission": {
+        "type": "dropdown",
+        "value": "Everyone",
+        "items": ["Everyone","Regular","Subscriber","Moderator","Editor"],
+        "label": "Permission level",
+        "tooltip": "Set the permission level for the command",
+        "group": "General"
+    },
+   
+    "responseNotEnoughPoints": {
+        "type": "textbox",
+        "value": "Not enough points",
+        "label": "Not enough points",
+        "tooltip": "Not enough points message",
+      
+    },
+	
+	"openWindow": {
+		"type": "button",
+		"label": "Open window",
+		"tooltip": "Opens a browser window",
+		"function": "openHelloWindow",
+		"wsevent": "",
+		"group": ""
+	}
+
+
+}
+	

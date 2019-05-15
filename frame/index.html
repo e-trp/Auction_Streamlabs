@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Twitch Streamlabs Auction</title>
+		<link rel="stylesheet" href="bootstrap.css">
+		<style type="text/css">
+		
+			@font-face {
+				font-family: 'Roboto';
+				font-style: normal;
+				font-weight: 400;
+				src: url("Roboto-Regular.ttf") format("opentype");;
+			}
+		
+			body {
+				background-color: rgba(0, 0, 0, 0);
+				margin: 0px auto; 
+				overflow: hidden; 
+				font-family: 'Roboto';
+				}
+			#status {
+				visibility: hidden;
+				display: block;
+				padding: 15px;
+			}
+			#userlist {
+				color:white;
+				padding: 0;
+				margin: 0;
+				margin-left: 10px;
+			}
+			#userlist div{
+				padding: 10px 10px;
+				margin-bottom:10px;
+				font-size: 25px;
+				border-radius: 7px;
+			}
+			#item:nth-child(odd) {
+				background-color: rgba(63, 45, 132, 0.7);
+			}
+			#item:nth-child(even) {
+				background-color: rgba(0, 0, 0, 0.7);
+			}
+			
+	</style>
+	</head>
+	<body>
+		<div class="container mb-1">
+		<output id="status">Please wait...</output>
+		<div id="userlist"></div>
+		</div>
+		<script type="application/javascript" src="../API_Key.js"></script>
+		<script type="application/javascript" src="../settings.js"></script>
+		<script type="application/javascript" src="list.js"></script>
+		<script type="application/javascript">
+			var statusOutput = document.querySelector('#status')
+
+			// Using default settings
+			if(typeof(settings) === 'undefined') {
+				var settings = {
+					"filterPhrases": "",
+					"darkTheme": true
+				}
+			}
+
+			if(typeof(API_Key) === 'undefined' || typeof(API_Socket) === 'undefined') {
+				statusOutput.innerText = 'Please make sure to right-click Script and insert api key! Then reload or re-open this window.'
+			} else {
+				if(settings.darkTheme) {
+					document.querySelector('body').classList.add('dark')
+				}
+
+				statusOutput.innerText = 'Connecting with Streamlabs Chatbot'
+			
+				// Load websocket script
+				var wsScript = document.createElement('script')
+				wsScript.setAttribute('type', 'application/javascript')
+				wsScript.setAttribute('src', 'ws.js')
+				document.querySelector('body').appendChild(wsScript)
+			}
+		</script>
+	</body>
+</html>
